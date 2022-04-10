@@ -12,7 +12,7 @@ public class Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnposition=new Vector3(0.31f,3.27f,-21.71f);
+        spawnposition=new Vector3(0.31f,2.49f,-21.71f);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class Spawn : MonoBehaviour
     {
         if (spawncount==0)
         {
-            if (transform.position.z<-9 & transform.position.z>-11.3 & transform.position.x>-0.37)
+            if (transform.position.z<-9 & transform.position.z>-11.3 & transform.position.x>-0.4)
             {
                 transform.position=spawnposition;
                 spawncount++;
