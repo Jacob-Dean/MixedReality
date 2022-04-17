@@ -25,28 +25,67 @@ public class ContinuousMovement : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
+        
         InputDevice device=InputDevices.GetDeviceAtXRNode(inputSource);
         device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+        
+       
     }
+ */
 
     private void FixedUpdate()
     {
-        CapsuleFollowHeadset();
+        var freedom=GameObject.Find("Guard").GetComponent<BotMovement>().freeMovement;
+        if(freedom)
+        {
+            InputDevice device=InputDevices.GetDeviceAtXRNode(inputSource);
+            device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+            CapsuleFollowHeadset();
 
-        Quaternion headYaw=Quaternion.Euler(0,rig.cameraGameObject.transform.eulerAngles.y,0);
-        Vector3 direction=headYaw*new Vector3(inputAxis.x,0,inputAxis.y);
-        character.Move(direction*Time.fixedDeltaTime*speed);
+            Quaternion headYaw=Quaternion.Euler(0,rig.cameraGameObject.transform.eulerAngles.y,0);
+            Vector3 direction=headYaw*new Vector3(inputAxis.x,0,inputAxis.y);
+            character.Move(direction*Time.fixedDeltaTime*speed);
 
-        bool isGrounded=CheckIfGrounded();
-        if (isGrounded)
-            fallingSpeed=0;
+            bool isGrounded=CheckIfGrounded();
+            if (isGrounded)
+                fallingSpeed=0;
+            else
+                fallingSpeed+=gravity*Time.fixedDeltaTime;
+
+
+            character.Move(Vector3.up*fallingSpeed*Time.fixedDeltaTime);
+        }
         else
-            fallingSpeed+=gravity*Time.fixedDeltaTime;
+        {
+            var pos = transform.position;
+            if(pos.x>2.6f & pos.y<0.3f)
+            {
+                pos.x-=0.6f*Time.deltaTime;
+            }
+            else if(pos.z<-11.0f)
+            {
+                pos.z+=0.6f*Time.deltaTime;
+            }
+            else if (pos.z<-10.3f)
+            {
+                pos.z+=0.3f*Time.deltaTime;
+                pos.y+=0.45f*Time.deltaTime;
+            }
+            else if(pos.z<-9.85f)
+            {
+                pos.z+=0.6f*Time.deltaTime;
+            }
+            else if(pos.x<3.5f)
+            {
+                pos.x+=0.6f*Time.deltaTime;
+            }
+            transform.position = pos;
 
+        }
 
-        character.Move(Vector3.up*fallingSpeed*Time.fixedDeltaTime);
     }
 
     void CapsuleFollowHeadset()

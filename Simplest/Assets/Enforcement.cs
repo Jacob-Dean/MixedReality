@@ -26,7 +26,7 @@ public class Enforcement : MonoBehaviour
         var proximity=Math.Sqrt(Math.Pow(pos.x-xval,2)+Math.Pow(pos.z-zval,2));
 
         //Debug.Log(proximity);
-        if(proximity>2 & Time.realtimeSinceStartup>30)
+        if(proximity>2 & Time.time>30 & GameObject.Find("Guard").GetComponent<BotMovement>().freeMovement)
         {
             // YOU CAN MAKE THIS CODE WAY CLEANER - YOU CAN JUST
             // RESET THE WHOLE VECTOR TO THE POSITION VECTOR OF THE GUARD

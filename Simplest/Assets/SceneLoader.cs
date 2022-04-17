@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
     }
     void Update()
     {
-        if(Time.realtimeSinceStartup>15)
+        if(Time.time>15)
         {
             PlayGame();
         }
