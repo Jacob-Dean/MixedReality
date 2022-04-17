@@ -25,7 +25,7 @@ public class BotMovement : MonoBehaviour
         var pos = transform.position;
         var rot = transform.eulerAngles; // Capture position and rotational vectors so that we can change the components
 
-        if(Time.realtimeSinceStartup>10 & Time.realtimeSinceStartup<=14)
+        if(Time.realtimeSinceStartup>25 & Time.realtimeSinceStartup<=29)
         // BEWARE!!!! Making distance travelled conditional on time can be problematic
         // This is because if you have a lower framerate, you will travel less distance
         
@@ -35,18 +35,18 @@ public class BotMovement : MonoBehaviour
             pos.z-=speed*Time.deltaTime;
             transform.position = pos;
         }
-        else if(Time.realtimeSinceStartup>14 & Time.realtimeSinceStartup<=25)
+        else if(Time.realtimeSinceStartup>29 & Time.realtimeSinceStartup<=40)
         {
             animator.SetBool("Walking", false); // After 15 seconds, the guard starts walking
         }
-        else if(Time.realtimeSinceStartup>25 & Time.realtimeSinceStartup<=29)
+        else if(Time.realtimeSinceStartup>40 & Time.realtimeSinceStartup<=44)
         {
             animator.SetBool("Walking", true); // After 15 seconds, the guard starts walking
 
             rot.y=0f;
             pos.z+=speed*Time.deltaTime;
         }
-        else if(Time.realtimeSinceStartup>29)
+        else if(Time.realtimeSinceStartup>44)
         {
             if(pos.x>-1.28 & pos.z>-9) // first constraint controls the movement and second part of the constraint ensures that only one part of the conditional is triggered
             {

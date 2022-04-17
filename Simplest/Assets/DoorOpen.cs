@@ -15,7 +15,7 @@ public class DoorOpen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.realtimeSinceStartup>10)
+        if(Time.realtimeSinceStartup>25)
         {
             animator.SetBool("Open", true);
         }
