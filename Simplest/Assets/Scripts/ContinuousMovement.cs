@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class ContinuousMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ContinuousMovement : MonoBehaviour
     private CharacterController character;
 
     public bool startCountdown=false;
+    public bool dofChange=false;
+    //public Vector3 savedRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,7 @@ public class ContinuousMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         var freedom=GameObject.Find("Guard").GetComponent<BotMovement>().freeMovement;
         if(freedom)
         {
@@ -62,6 +66,7 @@ public class ContinuousMovement : MonoBehaviour
         }
         else
         {
+            dofChange=true;
             var pos = transform.position;
             if(pos.x>2.6f & pos.y<0.3f)
             {
@@ -87,9 +92,13 @@ public class ContinuousMovement : MonoBehaviour
             else
             {
                 startCountdown=true; // starts the process of the hood being drawn over your head
+                //savedRotation=GameObject.Find("VR Camera").transform.eulerAngles;
+                //PlayerPrefs.SetFloat("x",savedRotation.x);
+                //PlayerPrefs.SetFloat("y",savedRotation.y);
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
             transform.position = pos;
-
+// (3.5066,1.049999,-10.29816)
         }
 
     }

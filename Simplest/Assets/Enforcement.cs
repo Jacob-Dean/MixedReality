@@ -54,9 +54,8 @@ public class Enforcement : MonoBehaviour
                 pos.z=zval;
             }
             
-    
-            transform.position = pos;
 
+            transform.position = pos;
 
         }
         //Debug.Log(proximity);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7817880249688292543}
   - component: {fileID: 7817880249688292542}
   - component: {fileID: 7817880249688292529}
+  - component: {fileID: 7625350725614755343}
   m_Layer: 8
   m_Name: VR Camera
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!114 &7625350725614755343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817880249688292528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163afbb17a700554da4fbe0e02eebb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7817880250669778632
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +315,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   additionalHeight: 0.2
+  startCountdown: 0
 --- !u!143 &7817880250843256594
 CharacterController:
   m_ObjectHideFlags: 0
