@@ -6,6 +6,7 @@ public class HoodTrigger : MonoBehaviour
 {
     Animator animator;
     public float startTime=0f;
+    public bool wardenTrigger=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +89,10 @@ public class HoodTrigger : MonoBehaviour
             else if((Time.time-startTime)>91 & (Time.time-startTime)<92)
             {
                 animator.SetInteger("Stage", 12);
+            }
+            else if((Time.time-startTime)>95)
+            {
+                wardenTrigger=true;
             }
         }
 // (5.25,3.92,-10.96)
