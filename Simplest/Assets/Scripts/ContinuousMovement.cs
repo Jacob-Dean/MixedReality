@@ -17,6 +17,8 @@ public class ContinuousMovement : MonoBehaviour
     private Vector2 inputAxis;
     private CharacterController character;
 
+    public bool startCountdown=false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,13 +76,17 @@ public class ContinuousMovement : MonoBehaviour
                 pos.z+=0.3f*Time.deltaTime;
                 pos.y+=0.45f*Time.deltaTime;
             }
-            else if(pos.z<-9.85f)
+            /*else if(pos.z<-9.85f)
             {
                 pos.z+=0.6f*Time.deltaTime;
-            }
+            }*/
             else if(pos.x<3.5f)
             {
                 pos.x+=0.6f*Time.deltaTime;
+            }
+            else
+            {
+                startCountdown=true; // starts the process of the hood being drawn over your head
             }
             transform.position = pos;
 
