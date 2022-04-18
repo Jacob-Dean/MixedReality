@@ -91,6 +91,8 @@ public class ContinuousMovement : MonoBehaviour
             }
             else
             {
+                pos.x=3.5066f;
+                pos.z=-10.29816f;
                 startCountdown=true; // starts the process of the hood being drawn over your head
                 //savedRotation=GameObject.Find("VR Camera").transform.eulerAngles;
                 //PlayerPrefs.SetFloat("x",savedRotation.x);
