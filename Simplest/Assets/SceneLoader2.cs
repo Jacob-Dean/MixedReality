@@ -30,7 +30,7 @@ public class SceneLoader2 : MonoBehaviour
     }
 }
 // (2.55,3.77,-5.776)
-//point
+
 //3
 //4
 //no shadow

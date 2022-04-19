@@ -25,19 +25,30 @@ public class NewBotMovement : MonoBehaviour
         }
         var timePassed=Time.time-startTime;
         
-        if(timePassed>10 & timePassed<=14)
+        if(timePassed>10 & timePassed<14)
         // BEWARE!!!! Making distance travelled conditional on time can be problematic
         // This is because if you have a lower framerate, you will travel less distance
         
         {
+
             animator.SetBool("Walking", true); // After 15 seconds, the guard starts walking
 
             pos.z-=speed*Time.deltaTime;
-            transform.position = pos;
+
         }
-        else if(Time.time>14 & Time.time<=25)
+        else if(timePassed>14 & timePassed<16)
         {
+
+            rot.y=-90;
+            pos.x-=speed*Time.deltaTime;
+        }
+        else if(timePassed>16 & timePassed<=25)
+        {
+
+            rot.y=-180;
             animator.SetBool("Walking", false); // After 15 seconds, the guard starts walking
         }
+        transform.position = pos;
+        transform.eulerAngles = rot;
     }
 }

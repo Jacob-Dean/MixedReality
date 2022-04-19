@@ -43,10 +43,15 @@ public class WardenScript : MonoBehaviour
                 transform.position = pos;
                 transform.eulerAngles = rot;
 
-                if (timePassed>20)
+                if (timePassed>30 & timePassed<32)
+                {
+                    animator.SetInteger("Warden", 3);
+                }
+                else if(timePassed>32)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
                 }
             }
     }
 }
+// (1.972,2.64,-5.95) 180

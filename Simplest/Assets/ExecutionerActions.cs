@@ -27,24 +27,32 @@ public class ExecutionerActions : MonoBehaviour
             {
                 startTime=Time.time;
             }
-            else if((Time.time-startTime)>21 & (Time.time-startTime)<30)
+            if ((Time.time-startTime)>2 & (Time.time-startTime)<12)
+            {
+                animator.SetInteger("Executioner", -1);
+            }
+            else if ((Time.time-startTime)>12 & (Time.time-startTime)<31)
+            {
+                animator.SetInteger("Executioner", 0);
+            }
+            else if((Time.time-startTime)>31 & (Time.time-startTime)<40)
             {
                 rot.y=-90;
                 animator.SetInteger("Executioner", 1);
             }
 
-            else if((Time.time-startTime)>31 & (Time.time-startTime)<51)
+            else if((Time.time-startTime)>40 & (Time.time-startTime)<58)
             {
                 rot.y=-180;
                 animator.SetInteger("Executioner", 2);
             }
 
-            else if((Time.time-startTime)>51 & (Time.time-startTime)<62)
+            else if((Time.time-startTime)>58 & (Time.time-startTime)<69)
             {
                 rot.y=-90;
                 animator.SetInteger("Executioner", 3);
             }
-            else if((Time.time-startTime)>62)
+            else if((Time.time-startTime)>69)
             {
                 rot.y=-180;
                 animator.SetInteger("Executioner", 4);

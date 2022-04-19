@@ -25,7 +25,7 @@ public class BotMovement : MonoBehaviour
         var pos = transform.position;
         var rot = transform.eulerAngles; // Capture position and rotational vectors so that we can change the components
 
-        if(Time.time>25 & Time.time<=29)
+        if(Time.time>100 & Time.time<=104)
         // BEWARE!!!! Making distance travelled conditional on time can be problematic
         // This is because if you have a lower framerate, you will travel less distance
         
@@ -35,49 +35,49 @@ public class BotMovement : MonoBehaviour
             pos.z-=speed*Time.deltaTime;
             transform.position = pos;
         }
-        else if(Time.time>29 & Time.time<=40)
+        else if(Time.time>104 & Time.time<=124)
         {
             animator.SetBool("Walking", false); // After 15 seconds, the guard starts walking
         }
-        else if(Time.time>40 & Time.time<=44)
+        else if(Time.time>124 & Time.time<=128)
         {
             animator.SetBool("Walking", true); // After 15 seconds, the guard starts walking
 
             rot.y=0f;
             pos.z+=speed*Time.deltaTime;
         }
-        else if(Time.time>44)
+        else if(Time.time>128)
         {
             if(pos.x>-1.28 & pos.z>-9) // first constraint controls the movement and second part of the constraint ensures that only one part of the conditional is triggered
             {
                 rot.y=-90f;
-                pos.x-=speed*Time.deltaTime;
+                pos.x-=1.5f*speed*Time.deltaTime;
             }
             else if(pos.z>-21.2 & pos.x<2)
             {
                 rot.y=-180f;
-                pos.z-=speed*Time.deltaTime;
+                pos.z-=1.5f*speed*Time.deltaTime;
             }
             else if(pos.x<5.1 & pos.z<-16)
             {
                 rot.y=-270f;
-                pos.x+=speed*Time.deltaTime;
+                pos.x+=1.5f*speed*Time.deltaTime;
             }
             else
             {
                 if(pos.z<-19.8)
                 {
                     rot.y=0f;
-                    pos.z+=speed*Time.deltaTime;
+                    pos.z+=1.5f*speed*Time.deltaTime;
                 }
                 else if(pos.z<-16) // Walking down the stairs
                 {
-                    pos.z+=speed*Time.deltaTime;
-                    pos.y-=0.6f*speed*Time.deltaTime;
+                    pos.z+=1.5f*speed*Time.deltaTime;
+                    pos.y-=1.5f*0.65f*speed*Time.deltaTime;
                 }
                 else if(pos.z<-11)
                 {
-                    pos.z+=speed*Time.deltaTime;
+                    pos.z+=1.5f*speed*Time.deltaTime;
                 }
                 else
                 {

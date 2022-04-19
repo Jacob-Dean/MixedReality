@@ -133,7 +133,12 @@ PrefabInstance:
     - target: {fileID: 7817880249688292540, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.55
+      value: 1.357
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817880249688292543, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7817880250669778646, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
         type: 3}
@@ -271,10 +276,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome To Prison
+  m_text: 'You have been sentenced to death for the murder of Emma Keyse.
+
+
+    Welcome
+    to prison...'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bbbd4e6a568775d4f994404d65e5db10, type: 2}
+  m_sharedMaterial: {fileID: 3682048307902113600, guid: bbbd4e6a568775d4f994404d65e5db10,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -305,7 +315,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -334,7 +344,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -272.14438, y: -232.11734, z: -314.60562, w: -400.83102}
+  m_margin: {x: -398.22223, y: -232.11734, z: -397.38867, w: -400.83102}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

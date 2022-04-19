@@ -21,7 +21,7 @@ public class DoorOpen2 : MonoBehaviour
         }
         var timePassed=Time.time-startTime;
 
-        if(timePassed>8)
+        if(timePassed>10)
         {
             animator.SetBool("Open", true);
         }

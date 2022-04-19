@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
     }
     void Update()
     {
-        if(Time.time>15)
+        if(Time.time>10)
         {
             PlayGame();
         }

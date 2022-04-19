@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 7817880249688292540, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.618
+      value: 1.344
       objectReference: {fileID: 0}
     - target: {fileID: 7817880250669778646, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
         type: 3}
@@ -271,17 +271,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 22 years later...
+  m_text: 'You spend the next 22 years in prison whilst petitioning to be released.
+
+
+    It
+    is now the year 1907...'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bbbd4e6a568775d4f994404d65e5db10, type: 2}
+  m_sharedMaterial: {fileID: 3682048307902113600, guid: bbbd4e6a568775d4f994404d65e5db10,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4294901953
+  m_fontColor: {r: 0.7576151, g: 0, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -305,7 +310,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -334,7 +339,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -272.14438, y: -232.11734, z: -314.60562, w: -400.83102}
+  m_margin: {x: -422.83994, y: -232.11734, z: -460.97064, w: -400.83102}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
