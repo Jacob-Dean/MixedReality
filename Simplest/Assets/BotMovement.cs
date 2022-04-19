@@ -10,12 +10,13 @@ public class BotMovement : MonoBehaviour
     Animator animator;
     public float speed;
     public bool freeMovement=true;
+    public bool audioPlay=true;
 
     // Start is called before the first frame update
     void Start()
     {
         animator=GetComponent<Animator>();
-
+        //FindObjectOfType<AudioManager>().Play("Lee1");
         //FindObjectOfType<AudioManager>().Play("one");
     }
 
@@ -25,6 +26,11 @@ public class BotMovement : MonoBehaviour
         var pos = transform.position;
         var rot = transform.eulerAngles; // Capture position and rotational vectors so that we can change the components
 
+        if (Time.time>99 & audioPlay==true)
+        {
+            FindObjectOfType<AudioManager>().Play("Lee1");
+            audioPlay=false;
+        }
         if(Time.time>100 & Time.time<=104)
         // BEWARE!!!! Making distance travelled conditional on time can be problematic
         // This is because if you have a lower framerate, you will travel less distance
@@ -38,6 +44,7 @@ public class BotMovement : MonoBehaviour
         else if(Time.time>104 & Time.time<=124)
         {
             animator.SetBool("Walking", false); // After 15 seconds, the guard starts walking
+
         }
         else if(Time.time>124 & Time.time<=128)
         {

@@ -8,7 +8,9 @@ public class ExecutionerActions : MonoBehaviour
 
     Animator animator;
     public float startTime=0f;
-    public float speed;
+    public bool playSound1=true;
+    public bool playSound2=true;
+    public bool playSound3=true;
 
     void Start()
     {
@@ -30,6 +32,12 @@ public class ExecutionerActions : MonoBehaviour
             if ((Time.time-startTime)>2 & (Time.time-startTime)<12)
             {
                 animator.SetInteger("Executioner", -1);
+
+                if (playSound1==true)
+                {
+                    FindObjectOfType<AudioManager>().Play("Lee2");
+                    playSound1=false;
+                }
             }
             else if ((Time.time-startTime)>12 & (Time.time-startTime)<31)
             {
@@ -39,6 +47,11 @@ public class ExecutionerActions : MonoBehaviour
             {
                 rot.y=-90;
                 animator.SetInteger("Executioner", 1);
+                if (playSound2==true)
+                {
+                    FindObjectOfType<AudioManager>().Play("Lee3");
+                    playSound2=false;
+                }
             }
 
             else if((Time.time-startTime)>40 & (Time.time-startTime)<58)
@@ -51,6 +64,11 @@ public class ExecutionerActions : MonoBehaviour
             {
                 rot.y=-90;
                 animator.SetInteger("Executioner", 3);
+                if (playSound3==true)
+                {
+                    FindObjectOfType<AudioManager>().Play("Lee4");
+                    playSound3=false;
+                }
             }
             else if((Time.time-startTime)>69)
             {

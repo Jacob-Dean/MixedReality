@@ -7,6 +7,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Enforcement : MonoBehaviour
 {
+    public bool audioPlay=true;
+    public float timeStamp=0f;
+    public string[] sounds = { "Lee7", "Lee8", "Lee9" };
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,15 @@ public class Enforcement : MonoBehaviour
             // YOU CAN MAKE THIS CODE WAY CLEANER - YOU CAN JUST
             // RESET THE WHOLE VECTOR TO THE POSITION VECTOR OF THE GUARD
             // AND THEN YOU DON't NEED to get copies of the vectors
+            if (audioPlay==true)
+            {
+                System.Random random = new System.Random();
 
+                var index=random.Next(3);
+                FindObjectOfType<AudioManager>().Play(sounds[index]);
+                timeStamp=Time.time;
+                audioPlay=false;
+            }
             
             if(rot.y==0)
             {
@@ -57,6 +68,10 @@ public class Enforcement : MonoBehaviour
 
             transform.position = pos;
 
+        }
+        else if(Time.time-timeStamp>4)
+        {
+            audioPlay=true;
         }
         //Debug.Log(proximity);
     }

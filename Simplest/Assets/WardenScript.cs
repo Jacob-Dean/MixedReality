@@ -8,6 +8,7 @@ public class WardenScript : MonoBehaviour
     Animator animator;
     public float startTime=0f;
     public float speed;
+    public bool playSound=true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,11 @@ public class WardenScript : MonoBehaviour
     {
         if(GameObject.Find("Hood").GetComponent<HoodTrigger>().wardenTrigger)
             {
+                if (playSound==true)
+                {
+                    FindObjectOfType<AudioManager>().Play("Lee5");
+                    playSound=false;
+                }
                 
                 if (startTime==0)
                 {

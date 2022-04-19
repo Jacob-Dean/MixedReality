@@ -7,6 +7,7 @@ public class NewBotMovement : MonoBehaviour
     Animator animator;
     public float speed;
     public float startTime=0f;
+    public bool playSound=true;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,11 @@ public class NewBotMovement : MonoBehaviour
 
             rot.y=-180;
             animator.SetBool("Walking", false); // After 15 seconds, the guard starts walking
+            if (playSound==true)
+            {
+                FindObjectOfType<AudioManager>().Play("Lee6");
+                playSound=false;
+            }
         }
         transform.position = pos;
         transform.eulerAngles = rot;
