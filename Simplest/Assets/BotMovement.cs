@@ -11,11 +11,14 @@ public class BotMovement : MonoBehaviour
     public float speed;
     public bool freeMovement=true;
     public bool audioPlay=true;
+    public bool audioPlay2=true;
+    public bool audioPlay3=true;
 
     // Start is called before the first frame update
     void Start()
     {
         animator=GetComponent<Animator>();
+
         //FindObjectOfType<AudioManager>().Play("Lee1");
         //FindObjectOfType<AudioManager>().Play("one");
     }
@@ -25,13 +28,21 @@ public class BotMovement : MonoBehaviour
     {
         var pos = transform.position;
         var rot = transform.eulerAngles; // Capture position and rotational vectors so that we can change the components
+        
+        if (Time.time>10 & audioPlay3==true)
+        {
+            FindObjectOfType<AudioManager>().Play("Indoor");
+            audioPlay3=false;
+        }
 
-        if (Time.time>99 & audioPlay==true)
+
+
+        if (Time.time>95 & audioPlay==true)
         {
             FindObjectOfType<AudioManager>().Play("Lee1");
             audioPlay=false;
         }
-        if(Time.time>100 & Time.time<=104)
+        if(Time.time>90 & Time.time<=94)
         // BEWARE!!!! Making distance travelled conditional on time can be problematic
         // This is because if you have a lower framerate, you will travel less distance
         
@@ -41,7 +52,7 @@ public class BotMovement : MonoBehaviour
             pos.z-=speed*Time.deltaTime;
             transform.position = pos;
         }
-        else if(Time.time>104 & Time.time<=124)
+        else if(Time.time>94 & Time.time<=124)
         {
             animator.SetBool("Walking", false); // After 15 seconds, the guard starts walking
 
@@ -55,6 +66,11 @@ public class BotMovement : MonoBehaviour
         }
         else if(Time.time>128)
         {
+            if (audioPlay2==true)
+            {
+                FindObjectOfType<AudioManager>().Play("Outdoor");
+                audioPlay2=false;
+            }
             if(pos.x>-1.28 & pos.z>-9) // first constraint controls the movement and second part of the constraint ensures that only one part of the conditional is triggered
             {
                 rot.y=-90f;

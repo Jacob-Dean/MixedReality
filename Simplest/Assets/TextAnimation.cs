@@ -16,7 +16,7 @@ public class TextAnimation : MonoBehaviour
     {
         var pos=GameObject.Find("VR Rig").GetComponent<Transform>().position;
 
-        if (pos.z>-5)
+        if (pos.z>-2.5)
         {
             animator.SetBool("FreeTrigger",true);
         }

@@ -12,6 +12,7 @@ public class NewBotMovement : MonoBehaviour
     void Start()
     {
         animator=GetComponent<Animator>();
+        FindObjectOfType<AudioManager>().Play("Indoor");
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class NewBotMovement : MonoBehaviour
         }
         var timePassed=Time.time-startTime;
         
-        if(timePassed>10 & timePassed<14)
+        if(timePassed>25 & timePassed<29)
         // BEWARE!!!! Making distance travelled conditional on time can be problematic
         // This is because if you have a lower framerate, you will travel less distance
         
@@ -37,13 +38,13 @@ public class NewBotMovement : MonoBehaviour
             pos.z-=speed*Time.deltaTime;
 
         }
-        else if(timePassed>14 & timePassed<16)
+        else if(timePassed>29 & timePassed<31)
         {
 
             rot.y=-90;
             pos.x-=speed*Time.deltaTime;
         }
-        else if(timePassed>16 & timePassed<=25)
+        else if(timePassed>31 & timePassed<=40)
         {
 
             rot.y=-180;

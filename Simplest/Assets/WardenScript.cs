@@ -7,13 +7,14 @@ public class WardenScript : MonoBehaviour
 {
     Animator animator;
     public float startTime=0f;
-    public float speed;
     public bool playSound=true;
 
     // Start is called before the first frame update
     void Start()
     {
         animator=GetComponent<Animator>();
+
+
     }
 
     // Update is called once per frame
@@ -21,11 +22,13 @@ public class WardenScript : MonoBehaviour
     {
         if(GameObject.Find("Hood").GetComponent<HoodTrigger>().wardenTrigger)
             {
+                /*
                 if (playSound==true)
                 {
+                    Debug.Log(1);
                     FindObjectOfType<AudioManager>().Play("Lee5");
                     playSound=false;
-                }
+                }*/
                 
                 if (startTime==0)
                 {
@@ -40,6 +43,8 @@ public class WardenScript : MonoBehaviour
                 {
                     animator.SetInteger("Warden", 1);
                     pos.x+=0.6f*Time.deltaTime;
+                    FindObjectOfType<AudioManager>().Play("Lee5");
+                    playSound=false;
                 }
                 else
                 {
@@ -49,11 +54,11 @@ public class WardenScript : MonoBehaviour
                 transform.position = pos;
                 transform.eulerAngles = rot;
 
-                if (timePassed>30 & timePassed<32)
+                if (timePassed>57 & timePassed<60)
                 {
                     animator.SetInteger("Warden", 3);
                 }
-                else if(timePassed>32)
+                else if(timePassed>60)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
                 }

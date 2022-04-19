@@ -18,6 +18,8 @@ public class ContinuousMovement2 : MonoBehaviour
     private Vector2 inputAxis;
     private CharacterController character;
 
+    public bool playSound=true;
+
 
 
 
@@ -61,6 +63,11 @@ public class ContinuousMovement2 : MonoBehaviour
 
 
             character.Move(Vector3.up*fallingSpeed*Time.fixedDeltaTime);
+        }
+        if (pos.z>-2.5 & playSound==true)
+        {
+            FindObjectOfType<AudioManager>().Play("Bird");
+            playSound=false;
         }
 
 

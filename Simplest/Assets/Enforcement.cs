@@ -9,11 +9,11 @@ public class Enforcement : MonoBehaviour
 {
     public bool audioPlay=true;
     public float timeStamp=0f;
-    public string[] sounds = { "Lee7", "Lee8", "Lee9" };
+    public string[] sounds = { "Lee7", "Lee8", "Lee9", "Lee10", "Lee11", "Lee12", "Lee13", "Lee14"};
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(sounds[3]);
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class Enforcement : MonoBehaviour
             {
                 System.Random random = new System.Random();
 
-                var index=random.Next(3);
+                var index=random.Next(8);
                 FindObjectOfType<AudioManager>().Play(sounds[index]);
                 timeStamp=Time.time;
                 audioPlay=false;

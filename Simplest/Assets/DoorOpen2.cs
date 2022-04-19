@@ -6,6 +6,7 @@ public class DoorOpen2 : MonoBehaviour
 {
     public float startTime=0f;
     Animator animator;
+    public bool playSound=true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,14 @@ public class DoorOpen2 : MonoBehaviour
         }
         var timePassed=Time.time-startTime;
 
-        if(timePassed>10)
+        if(timePassed>25)
         {
             animator.SetBool("Open", true);
+            if (playSound==true)
+            {
+                FindObjectOfType<AudioManager>().Play("Door");
+                playSound=false;
+            }
         }
     }
 }
