@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7817880249688292540, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.55
+      objectReference: {fileID: 0}
     - target: {fileID: 7817880250669778646, guid: 92e88fecfbb9d8e44aae7aac9de0154d,
         type: 3}
       propertyPath: m_ModelPrefab
@@ -204,6 +209,10 @@ PrefabInstance:
     - {fileID: 7817880250843256607, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
     - {fileID: 7817880250843256595, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
     - {fileID: 7817880250843256594, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
+    - {fileID: 7817880249688292529, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
+    - {fileID: 7625350725614755343, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
+    - {fileID: 7817880250843256592, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
+    - {fileID: 7817880250843256593, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92e88fecfbb9d8e44aae7aac9de0154d, type: 3}
 --- !u!1 &414947521
 GameObject:

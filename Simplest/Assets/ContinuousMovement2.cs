@@ -19,6 +19,8 @@ public class ContinuousMovement2 : MonoBehaviour
     private CharacterController character;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,35 +29,40 @@ public class ContinuousMovement2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    
+    /*
     void Update()
     {
         
-        InputDevice device=InputDevices.GetDeviceAtXRNode(inputSource);
-        device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+
         
        
     }
- 
+ */
 
     private void FixedUpdate()
     {
+        var pos=transform.position;
+
+        if (pos.z<-2.5)
+        {
+            InputDevice device=InputDevices.GetDeviceAtXRNode(inputSource);
+            device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+            CapsuleFollowHeadset();
+
+            Quaternion headYaw=Quaternion.Euler(0,rig.cameraGameObject.transform.eulerAngles.y,0);
+            Vector3 direction=headYaw*new Vector3(inputAxis.x,0,inputAxis.y);
+            character.Move(direction*Time.fixedDeltaTime*speed);
+
+            bool isGrounded=CheckIfGrounded();
+            if (isGrounded)
+                fallingSpeed=0;
+            else
+                fallingSpeed+=gravity*Time.fixedDeltaTime;
 
 
-        CapsuleFollowHeadset();
+            character.Move(Vector3.up*fallingSpeed*Time.fixedDeltaTime);
+        }
 
-        Quaternion headYaw=Quaternion.Euler(0,rig.cameraGameObject.transform.eulerAngles.y,0);
-        Vector3 direction=headYaw*new Vector3(inputAxis.x,0,inputAxis.y);
-        character.Move(direction*Time.fixedDeltaTime*speed);
-
-        bool isGrounded=CheckIfGrounded();
-        if (isGrounded)
-            fallingSpeed=0;
-        else
-            fallingSpeed+=gravity*Time.fixedDeltaTime;
-
-
-        character.Move(Vector3.up*fallingSpeed*Time.fixedDeltaTime);
 
         
 

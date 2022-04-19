@@ -20,7 +20,7 @@ public class PleaseWork : MonoBehaviour
     {
         if(GameObject.Find("VR Rig").GetComponent<ContinuousMovement>().dofChange)
         {
-            Debug.Log(2);
+ 
             driver.trackingType=TrackedPoseDriver.TrackingType.RotationOnly;
             GameObject.Find("Left Hand").transform.localScale=new Vector3(0,0,0);
             GameObject.Find("Right Hand").transform.localScale=new Vector3(0,0,0);
